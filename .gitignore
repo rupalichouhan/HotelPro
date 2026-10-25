@@ -1,0 +1,30 @@
+# Environment variables (Crucial for security)
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Production / Build outputs
+dist/
+client/dist/
+build/
+
+# Server uploads & temporary storage
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

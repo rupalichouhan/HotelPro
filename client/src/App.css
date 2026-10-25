@@ -1,0 +1,250 @@
+/* HotelPro Global Styling */
+:root {
+  --primary-color: #0f172a;
+  --secondary-color: #1e293b;
+  --gold-accent: #d4af37;
+  --gold-gradient: linear-gradient(135deg, #e6ca65 0%, #c49726 100%);
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #f8fafc;
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, .hero-headline, .brand-text {
+  font-family: var(--font-main);
+  letter-spacing: -0.02em;
+}
+
+/* Navbar */
+.hotel-navbar {
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  transition: all 0.2s ease;
+}
+
+.brand-icon-box {
+  width: 38px;
+  height: 38px;
+  background: var(--primary-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.15);
+}
+
+.brand-text {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.brand-highlight {
+  color: #d4af37;
+}
+
+.nav-custom-link {
+  font-weight: 600;
+  color: #475569 !important;
+  transition: color 0.2s ease;
+  padding: 0.5rem 0.75rem !important;
+}
+
+.nav-custom-link:hover,
+.nav-custom-link.active {
+  color: #0f172a !important;
+}
+
+.bg-gradient-gold {
+  background: var(--gold-gradient) !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+  border: none !important;
+}
+
+.bg-gradient-gold:hover {
+  filter: brightness(1.05);
+  color: #000 !important;
+}
+
+/* User Badge */
+.avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.small-avatar {
+  width: 28px;
+  height: 28px;
+  font-size: 0.75rem;
+}
+
+.user-nav-name {
+  font-size: 0.85rem;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+/* Hero Carousel */
+.carousel-image-slide {
+  height: 75vh;
+  min-height: 480px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-headline {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtext {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Room Cards */
+.room-card {
+  border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #ffffff;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(15, 23, 42, 0.1) !important;
+}
+
+.room-card-img-wrapper {
+  height: 220px;
+}
+
+.room-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.room-card:hover .room-card-img {
+  transform: scale(1.04);
+}
+
+.room-price-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.price-currency {
+  font-size: 0.85rem;
+  color: #d4af37;
+}
+
+.price-amount {
+  font-size: 1.2rem;
+}
+
+.price-period {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.room-type-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  letter-spacing: 0.05em;
+}
+
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.modal-room-carousel-img {
+  height: 320px;
+  object-fit: cover;
+}
+
+/* Filter Panel */
+.filter-panel {
+  background: #ffffff;
+}
+
+/* User Welcome Card */
+.user-welcome-card {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.admin-header-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-left: 5px solid #dc3545;
+}
+
+/* Admin Tabs */
+.nav-tabs-admin .nav-link {
+  color: #475569;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  transition: all 0.2s;
+}
+
+.nav-tabs-admin .nav-link.active {
+  color: #0f172a;
+  border-bottom: 3px solid #0f172a;
+  background: transparent;
+}
+
+/* Booking Record Card */
+.booking-record-card {
+  border-left: 4px solid #0f172a;
+  transition: all 0.2s ease;
+}
+
+.booking-record-card:hover {
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.07) !important;
+}
+
+/* Auth Page */
+.auth-page-wrapper {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Feature Box */
+.feature-box {
+  transition: all 0.25s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}

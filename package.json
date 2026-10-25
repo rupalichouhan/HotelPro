@@ -1,0 +1,11 @@
+{
+  "name": "hotelpro-monorepo",
+  "version": "1.0.0",
+  "description": "HotelPro - Full-Stack MERN Hotel Management System",
+  "scripts": {
+    "server": "cd server && node server.js",
+    "client": "cd client && npm run dev",
+    "seed": "cd server && node seed.js",
+    "test:system": "cd server && node test_system.js"
+  }
+}
