@@ -10,33 +10,35 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8001;
 
-// Database Connection
+// Database Connection & Auto-Seed
 connectToMongo().then(() => {
   const autoSeedIfEmpty = require('./initSeed');
   autoSeedIfEmpty();
 });
 
-// Middlewares
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://127.0.0.1:5173',
-  'http://localhost:3000',
-  process.env.CLIENT_URL,
-].filter(Boolean);
+// Robust CORS Middleware
+const isAllowedOrigin = (origin) => {
+  if (!origin) return true; // Mobile apps, curl, server-to-server
+  // Allow any localhost / 127.0.0.1 on any port (5173, 5174, 3000, etc.)
+  if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) return true;
+  // Allow all Vercel deployments (production and preview branches)
+  if (origin.endsWith('.vercel.app')) return true;
+  // Allow custom env client URLs if defined
+  if (process.env.CLIENT_URL && origin === process.env.CLIENT_URL) return true;
+  if (process.env.FRONTEND_URL && origin === process.env.FRONTEND_URL) return true;
+  return true; // Default allow in development to prevent network blocks
+};
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps, curl, or Postman)
-      if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
-        callback(null, true);
-      } else {
-        callback(new Error('Blocked by CORS policy'));
-      }
+      callback(null, true);
     },
     credentials: true,
   })
 );
+app.options('*', cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

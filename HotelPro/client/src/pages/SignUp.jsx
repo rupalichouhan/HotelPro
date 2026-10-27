@@ -68,7 +68,11 @@ const SignUp = () => {
       }
     } catch (err) {
       console.error('Registration error:', err);
-      toast.error(err.response?.data?.message || 'Registration failed. Email may already be in use.');
+      if (!err.response) {
+        toast.error('Cannot connect to backend server. Please verify the Express server is running on http://localhost:8001.');
+      } else {
+        toast.error(err.response?.data?.message || 'Registration failed. Email may already be in use.');
+      }
     } finally {
       setLoading(false);
     }

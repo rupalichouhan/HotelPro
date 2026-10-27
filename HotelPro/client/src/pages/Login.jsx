@@ -49,7 +49,11 @@ const Login = () => {
       }
     } catch (err) {
       console.error('Login error:', err);
-      toast.error(err.response?.data?.message || 'Invalid email or password.');
+      if (!err.response) {
+        toast.error('Cannot connect to backend server. Please verify the Express server is running on http://localhost:8001.');
+      } else {
+        toast.error(err.response?.data?.message || 'Invalid email or password.');
+      }
     } finally {
       setLoading(false);
     }
